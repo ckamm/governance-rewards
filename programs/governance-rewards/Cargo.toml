@@ -1,0 +1,33 @@
+[package]
+description = "Created with Anchor"
+edition = "2021"
+name = "governance-rewards"
+version = "0.1.4"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "governance_rewards"
+
+[features]
+cpi = ["no-entrypoint"]
+default = []
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+
+[profile.release]
+overflow-checks = true
+
+[dependencies]
+anchor-lang = {version = "0.24.2", features = ["init-if-needed"]}
+anchor-spl = "0.24.2"
+borsh = "0.9.1"
+solana-program = "^1.9.22"
+spl-governance = {version = "=2.2.1", features = ["no-entrypoint"]}
+spl-governance-addin-api = "=0.1.1"
+spl-governance-tools = "=0.1.2"
+
+[dev-dependencies]
+governance-rewards-client = {path = "../../governance-rewards-client"}
+solana-program-test = "^1.9.13"
+solana-sdk = "^1.9.22"
